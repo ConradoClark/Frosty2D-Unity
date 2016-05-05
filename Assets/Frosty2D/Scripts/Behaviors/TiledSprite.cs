@@ -61,8 +61,6 @@ public class TiledSprite : MonoBehaviour
         innerSprite = sprite;
         innerTilingType = tilingType;
         innerShader = baseShader;
-        innerSharedMaterial = sharedMaterial;
-
         forceUpdate = false;
 
         if (baseShader == null) return;
@@ -70,7 +68,9 @@ public class TiledSprite : MonoBehaviour
         MeshRenderer mr = this.gameObject.GetComponent<MeshRenderer>();
         if (mr == null) { mr = this.gameObject.AddComponent<MeshRenderer>(); }
         mr.hideFlags = HideFlags.NotEditable;
-        var mat = innerSharedMaterial.GetInstanceID() != 0 ? innerSharedMaterial : mr.sharedMaterial;
+        var mat = sharedMaterial.GetInstanceID() != 0 ? sharedMaterial : (mr.sharedMaterial == innerSharedMaterial ? null : mr.sharedMaterial);
+        innerSharedMaterial = sharedMaterial;
+
         if (mat == null || (shouldRecreateMaterial)) { mat = new Material(baseShader); }
 
         shouldRecreateMaterial = false;
