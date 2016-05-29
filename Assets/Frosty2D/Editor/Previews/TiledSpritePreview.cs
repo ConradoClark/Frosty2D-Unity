@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEditor;
 
-[CustomPreview(typeof(TiledSprite))]
+[CustomPreview(typeof(FrostyTiledSprite))]
 public class TiledSpritePreview : ObjectPreview
 {
     public override bool HasPreviewGUI()
@@ -12,12 +12,12 @@ public class TiledSpritePreview : ObjectPreview
 
     public override void OnPreviewGUI(Rect r, GUIStyle background)
     {
-        TiledSprite ts = target as TiledSprite;
+        FrostyTiledSprite ts = target as FrostyTiledSprite;
         GUI.DrawTexture(r, ts.sprite.texture);
     }
     public override void OnInteractivePreviewGUI(Rect r, GUIStyle background)
     {
-        TiledSprite ts = target as TiledSprite;
+        FrostyTiledSprite ts = target as FrostyTiledSprite;
         float xOffset = r.width / 2 - ts.sprite.bounds.size.x / 2 * ts.numberOfTiles.x;
         float yOffset = r.height / 2 - ts.sprite.bounds.size.y / 2 * ts.numberOfTiles.y;
 

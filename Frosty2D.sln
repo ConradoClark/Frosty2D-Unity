@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2015
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frosty2D.CSharp", "Frosty2D.CSharp.csproj", "{5CA1042E-8E69-AA87-2ACA-6AC128CDFCBF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frosty2D.CSharp.Editor", "Frosty2D.CSharp.Editor.csproj", "{F9D9289F-6E5A-27BB-AC36-B58562F1125F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{5CA1042E-8E69-AA87-2ACA-6AC128CDFCBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CA1042E-8E69-AA87-2ACA-6AC128CDFCBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CA1042E-8E69-AA87-2ACA-6AC128CDFCBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9D9289F-6E5A-27BB-AC36-B58562F1125F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9D9289F-6E5A-27BB-AC36-B58562F1125F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9D9289F-6E5A-27BB-AC36-B58562F1125F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9D9289F-6E5A-27BB-AC36-B58562F1125F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

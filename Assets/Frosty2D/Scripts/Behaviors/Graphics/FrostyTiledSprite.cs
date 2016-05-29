@@ -4,7 +4,8 @@ using System.Collections;
 using UnityEditor;
 
 [ExecuteInEditMode]
-public class TiledSprite : MonoBehaviour
+[AddComponentMenu("Frosty-Rendering/TiledSprite")]
+public class FrostyTiledSprite : MonoBehaviour
 {
     public enum TilingType
     {
@@ -13,12 +14,6 @@ public class TiledSprite : MonoBehaviour
         [Header("Multiple Quads, No Texture Scaling, Combining Possible")]
         MultipleQuadsNoScaleChange
     }
-
-#if UNITY_EDITOR
-    [Header("Editor Snapping")]
-    public bool snapToGrid = true;
-    public Vector2 snapValue = Vector2.one;
-#endif
 
     [Header("Rendering Settings")]
     public Shader baseShader;
@@ -226,9 +221,6 @@ public class TiledSprite : MonoBehaviour
         if (!Application.isPlaying)
         {
             GenerateQuads();
-            // Adjust size and position
-            if (snapToGrid)
-                transform.position = RoundTransform(transform.position, snapValue);
 
             // Recreates material if object is a copy
             if (instanceID != GetInstanceID())
@@ -250,18 +242,5 @@ public class TiledSprite : MonoBehaviour
         }
 #endif
     }
-
-#if UNITY_EDITOR
-    // The snapping code
-    private Vector3 RoundTransform(Vector3 v, Vector2 snapValue)
-    {
-        return new Vector3
-        (
-            snapValue.x > 0 ? snapValue.x * Mathf.Round(v.x / snapValue.x) : v.x,
-            snapValue.y > 0 ? snapValue.y * Mathf.Round(v.y / snapValue.y) : v.y,
-            v.z
-        );
-    }
-#endif
 
 }

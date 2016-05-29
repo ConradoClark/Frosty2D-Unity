@@ -2,12 +2,12 @@
 using System.Collections;
 using UnityEditor;
 
-[CustomEditor(typeof(TiledSprite))]
+[CustomEditor(typeof(FrostyTiledSprite))]
 [CanEditMultipleObjects]
 public class TiledSpriteEditor : Editor{
     void OnEnable()
     {
-        var castedTarget = (target as TiledSprite);
+        var castedTarget = (target as FrostyTiledSprite);
         var meshRenderer = castedTarget.GetComponent<MeshRenderer>();
         if (meshRenderer != null)
         {

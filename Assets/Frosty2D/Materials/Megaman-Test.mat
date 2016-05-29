@@ -6,11 +6,11 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: New Material 2
+  m_Name: Megaman-Test
   m_Shader: {fileID: 4800000, guid: 6e53a9a32eae38a428451993513c7c87, type: 3}
-  m_ShaderKeywords: _FADEINSTRIPSHORIZONTALREVERSE_ON _FADEINSTRIPSHORIZONTAL_ON
+  m_ShaderKeywords: PIXELSNAP_ON
   m_LightmapFlags: 5
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
@@ -19,82 +19,14 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: 1579d111bbbfa4b49be2523f54e86f68, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _BumpMap
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _DetailNormalMap
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _ParallaxMap
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _OcclusionMap
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _EmissionMap
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _DetailMask
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _DetailAlbedoMap
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _MetallicGlossMap
-        second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
       data:
         first:
-          name: _SrcBlend
-        second: 1
-      data:
-        first:
-          name: _DstBlend
-        second: 0
-      data:
-        first:
-          name: _Cutoff
-        second: 0.5
-      data:
-        first:
           name: _Saturation
-        second: -1
+        second: 0.007
       data:
         first:
           name: _Hue
@@ -102,15 +34,11 @@ Material:
       data:
         first:
           name: _Luminance
-        second: 0
+        second: -0.006
       data:
         first:
           name: _Opacity
         second: 1
-      data:
-        first:
-          name: _Invert
-        second: 0
       data:
         first:
           name: _HAutoScroll
@@ -122,11 +50,11 @@ Material:
       data:
         first:
           name: _FadeInStripsHorizontal
-        second: 1
+        second: 0
       data:
         first:
           name: _LevelsMinInput
-        second: 16
+        second: 0
       data:
         first:
           name: _LevelsGamma
@@ -138,27 +66,27 @@ Material:
       data:
         first:
           name: _LevelsRMinInput
-        second: 12
+        second: 0
       data:
         first:
           name: _LevelsRGamma
-        second: 0.4
+        second: 1
       data:
         first:
           name: _LevelsRMaxInput
-        second: 98
+        second: 255
       data:
         first:
           name: _LevelsGMinInput
-        second: 23
+        second: 0
       data:
         first:
           name: _LevelsGGamma
-        second: 1.34
+        second: 1
       data:
         first:
           name: _LevelsGMaxInput
-        second: 210
+        second: 255
       data:
         first:
           name: _LevelsBMinInput
@@ -166,11 +94,11 @@ Material:
       data:
         first:
           name: _LevelsBGamma
-        second: 1.18
+        second: 1
       data:
         first:
           name: _LevelsBMaxInput
-        second: 175
+        second: 255
       data:
         first:
           name: _LevelsCustom1MinInput
@@ -178,11 +106,11 @@ Material:
       data:
         first:
           name: _LevelsCustom1Gamma
-        second: 1.56
+        second: 1
       data:
         first:
           name: _LevelsCustom1MaxInput
-        second: 196
+        second: 255
       data:
         first:
           name: _LevelsCustom2MinInput
@@ -229,42 +157,6 @@ Material:
         second: 0
       data:
         first:
-          name: _Parallax
-        second: 0.02
-      data:
-        first:
-          name: _ZWrite
-        second: 1
-      data:
-        first:
-          name: _Glossiness
-        second: 0.5
-      data:
-        first:
-          name: _BumpScale
-        second: 1
-      data:
-        first:
-          name: _OcclusionStrength
-        second: 1
-      data:
-        first:
-          name: _DetailNormalMapScale
-        second: 1
-      data:
-        first:
-          name: _UVSec
-        second: 0
-      data:
-        first:
-          name: _Mode
-        second: 0
-      data:
-        first:
-          name: _Metallic
-        second: 0
-      data:
-        first:
           name: _ColorReplTolerance4
         second: 0
       data:
@@ -282,7 +174,7 @@ Material:
       data:
         first:
           name: _LevelsOpacityValue
-        second: 0
+        second: 1
       data:
         first:
           name: _LevelsOpacityTolerance
@@ -319,35 +211,7 @@ Material:
         first:
           name: _FadeInStripsVertical
         second: 0
-      data:
-        first:
-          name: _FadeInStripsHorizontalSpeed
-        second: 0.5
-      data:
-        first:
-          name: _FadeInStripsVerticalSpeed
-        second: 1
-      data:
-        first:
-          name: _FadeInStripsHorizontalReverse
-        second: 1
-      data:
-        first:
-          name: _FadeInStripsVerticalReverse
-        second: 0
-      data:
-        first:
-          name: _FadeInStripsHorizontalStrips
-        second: 1
-      data:
-        first:
-          name: _FadeInStripsVerticalStrips
-        second: 1
     m_Colors:
-      data:
-        first:
-          name: _EmissionColor
-        second: {r: 0, g: 0, b: 0, a: 1}
       data:
         first:
           name: _Color
@@ -355,11 +219,11 @@ Material:
       data:
         first:
           name: _Colorize
-        second: {r: 0.71460444, g: 0.6911765, b: 1, a: 0.334}
+        second: {r: 0.9558824, g: 0, b: 0, a: 0}
       data:
         first:
           name: _LevelsCustom1Color
-        second: {r: 1, g: 0.51724136, b: 0, a: 1}
+        second: {r: 1, g: 1, b: 1, a: 0}
       data:
         first:
           name: _LevelsCustom2Color
@@ -411,11 +275,11 @@ Material:
       data:
         first:
           name: _LevelsOpacityCustom1Color
-        second: {r: 1, g: 1, b: 1, a: 0}
+        second: {r: 0, g: 0.9058824, b: 0.8431373, a: 1}
       data:
         first:
           name: _LevelsOpacitySource
-        second: {r: 1, g: 1, b: 1, a: 0}
+        second: {r: 1, g: 1, b: 1, a: 1}
       data:
         first:
           name: _LevelsOpacitySource2
