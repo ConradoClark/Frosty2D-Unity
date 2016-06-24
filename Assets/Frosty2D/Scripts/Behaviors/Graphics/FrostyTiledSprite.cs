@@ -6,7 +6,7 @@ using UnityEditor;
 #endif
 
 [ExecuteInEditMode]
-[AddComponentMenu("Frosty-Rendering/TiledSprite")]
+[AddComponentMenu("Frosty-Rendering/Tiled Sprite")]
 public class FrostyTiledSprite : MonoBehaviour
 {
     public enum TilingType

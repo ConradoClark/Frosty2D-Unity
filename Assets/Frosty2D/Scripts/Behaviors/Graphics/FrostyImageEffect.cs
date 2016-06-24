@@ -2,6 +2,7 @@
 using System.Collections;
 
 [ExecuteInEditMode]
+[AddComponentMenu("Frosty-Rendering/Image Effect")]
 public class FrostyImageEffect : MonoBehaviour
 {
     public Material material;

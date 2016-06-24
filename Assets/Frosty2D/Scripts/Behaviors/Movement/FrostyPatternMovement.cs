@@ -3,7 +3,7 @@ using System.Linq;
 using System.Collections;
 using Assets.Frosty2D.Scripts.Core.Movement;
 
-[AddComponentMenu("Frosty-Movement/Pattern Movement")]
+[AddComponentMenu("Frosty-Movement/Movement Types/Pattern Movement")]
 public class FrostyPatternMovement : MonoBehaviour
 {
     [Header("Kinematics Reference")]

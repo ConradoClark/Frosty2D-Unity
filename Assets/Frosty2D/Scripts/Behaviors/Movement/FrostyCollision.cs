@@ -3,6 +3,7 @@ using System.Linq;
 using System.Collections;
 
 [ExecuteInEditMode]
+[AddComponentMenu("Frosty-Movement/Collision/Basic Collision")]
 public class FrostyCollision : MonoBehaviour
 {
     public Vector2 offset;

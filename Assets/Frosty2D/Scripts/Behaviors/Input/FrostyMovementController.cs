@@ -3,7 +3,7 @@ using System.Linq;
 using System.Collections;
 using Assets.Frosty2D.Scripts.Core.Movement;
 
-[AddComponentMenu("Frosty-Movement/Movement Controller")]
+[AddComponentMenu("Frosty-Movement/Input/Movement Controller")]
 public class FrostyMovementController : MonoBehaviour
 {
     public FrostyMovementControllerInput[] inputs;

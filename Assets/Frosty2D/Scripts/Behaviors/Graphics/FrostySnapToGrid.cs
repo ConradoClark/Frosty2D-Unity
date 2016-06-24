@@ -2,7 +2,7 @@
 using System.Collections;
 
 [ExecuteInEditMode]
-[AddComponentMenu("Frosty-Rendering/SnapToGrid")]
+[AddComponentMenu("Frosty-Rendering/Snap To Grid")]
 public class FrostySnapToGrid : MonoBehaviour
 {
 #if UNITY_EDITOR

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[AddComponentMenu("Frosty-Effects/Lifetime Expiration")]
 public class Lifetime : MonoBehaviour
 {
     public float lifeTime;

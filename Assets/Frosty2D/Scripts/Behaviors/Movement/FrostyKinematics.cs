@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-[AddComponentMenu("Frosty-Movement/Kinematics")]
+[AddComponentMenu("Frosty-Movement/Base/Kinematics")]
 public class FrostyKinematics : MonoBehaviour
 {
     private List<Vector2> forces;

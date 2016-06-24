@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Collections;
 
+[AddComponentMenu("Frosty-Movement/Collision/Clamp On Collision")]
 public class FrostyClampOnCollision : FrostyOnCollision
 {
     public FrostyKinematics kinematics;

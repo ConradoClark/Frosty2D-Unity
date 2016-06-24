@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 414966}
   - 114: {fileID: 11427800}
   m_Layer: 0
-  m_Name: Movement
+  m_Name: BasicPlatformMovement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
