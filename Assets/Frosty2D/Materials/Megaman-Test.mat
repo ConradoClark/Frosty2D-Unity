@@ -118,7 +118,7 @@ Material:
       data:
         first:
           name: _LevelsCustom2Gamma
-        second: 1
+        second: 8.3
       data:
         first:
           name: _LevelsCustom2MaxInput
@@ -210,6 +210,38 @@ Material:
       data:
         first:
           name: _FadeInStripsVertical
+        second: 0
+      data:
+        first:
+          name: _FadeInStripsHorizontalSpeed
+        second: 1
+      data:
+        first:
+          name: _FadeInStripsVerticalSpeed
+        second: 1
+      data:
+        first:
+          name: _FadeInStripsHorizontalReverse
+        second: 0
+      data:
+        first:
+          name: _FadeInStripsVerticalReverse
+        second: 0
+      data:
+        first:
+          name: _FadeInStripsHorizontalStrips
+        second: 1
+      data:
+        first:
+          name: _FadeInStripsVerticalStrips
+        second: 1
+      data:
+        first:
+          name: _FadeInStripsHorizontalProgress
+        second: 0
+      data:
+        first:
+          name: _FadeInStripsVerticalProgress
         second: 0
     m_Colors:
       data:

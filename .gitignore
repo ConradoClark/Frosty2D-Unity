@@ -5,3 +5,5 @@
 *.suo
 /Library
 /Temp
+/Assets/Standard Assets
+/Assets/Editor

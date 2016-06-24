@@ -19,7 +19,5 @@ public class TiledSpriteEditor : Editor{
         {
             meshFilter.hideFlags = HideFlags.HideInInspector;
         }
-        var preview = AssetPreview.GetAssetPreview(castedTarget);
-        preview = castedTarget.sprite.texture;
     }
 }

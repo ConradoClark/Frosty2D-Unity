@@ -10,18 +10,46 @@ public class FrostyMovementController : MonoBehaviour
 
     void Update()
     {
-        foreach(FrostyMovementControllerInput input in inputs.OrderBy(i=>i.priority))
+        FrostyMovementControllerInput[] orderedInputs = inputs.OrderBy(i => i.priority).ToArray();
+        for (int i =0; i< orderedInputs.Length;i++)
         {
+            FrostyMovementControllerInput input = orderedInputs[i];
             bool isHeld = Input.GetKey(input.key);
             bool isPressed = Input.GetKeyDown(input.key);
             bool isReleased = Input.GetKeyUp(input.key);
             
-            if (isPressed)
+            if (!isPressed && isHeld && input.repeatOnHold && input.conditions.All(condition => condition.Value))
             {
-                input.movement.Reactivate();
+                if (!input.movement.IsActivating)
+                {
+                    input.movement.Reactivate(input.keepSpeed);
+                }
+                continue;
             }
 
-            if (isReleased)
+            if (isPressed && input.conditions.All(condition=>condition.Value))
+            {
+                if (input.toggle && !input.movement.HasFinished)
+                {
+                    input.movement.Deactivate();
+                    continue;
+                }
+
+                if (input.exclusive)
+                {
+                    for (int j = 0; j < orderedInputs.Length; j++)
+                    {
+                        if (i != j)
+                        {
+                            orderedInputs[j].movement.Deactivate();
+                        }
+                    }
+                }
+                input.movement.Reactivate(input.keepSpeed);
+                continue;
+            }
+
+            if (isReleased && !input.toggle && input.deactivateOnRelease)
             {
                 input.movement.Deactivate();
             }

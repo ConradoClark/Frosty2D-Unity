@@ -1,9 +1,12 @@
-﻿Shader "Frosty/Unlit"
+﻿Shader "Frosty/MixedLighting"
 {
 	Properties
 	{
 		[Header(Texture)]
 		_MainTex ("Main Texture", 2D) = "white" {}
+
+		[Header(Mixed Lighting)]
+		_LightInfluence ("Light Influence", Range(0,1)) = 0
 
 		[Header(Color)]
 		_Color("Tint", Color) = (1,1,1,1)
@@ -88,14 +91,6 @@
 		_HAutoScroll ("Scroll - Horizontal Scrolling Speed", float) = 0
 		_VAutoScroll("Scroll - Vertical Scrolling Speed", float) = 0
 
-		[Header(Cutoff)]
-		_CutoffTexture("Cutoff Texture", 2D) = "white" {}
-		[MaterialToggle] _EnableCutoff("Enable Cutoff",float) = 0
-		_CutoffFactor("Cutoff Factor", Range(0,1)) = 1
-		[MaterialToggle] _EnableCutoffColorization("Enable Cutoff Colorization",float) = 0
-		_CutoffColor50("Cutoff Color at 50", Color) = (0,0,0,0)
-		_CutoffColor15("Cutoff Color at 15", Color) = (0,0,0,0)
-
 		[Header(FadeIn Effects)]
 		[MaterialToggle] _FadeInStripsHorizontal("FadeIn - HorizontalStrips", float) = 0
 		_FadeInStripsHorizontalStrips("FadeIn - HorizontalStrips - Number of Strips per UV", float) = 1
@@ -112,6 +107,7 @@
 		Tags{ "Queue" = "Transparent" "IgnoreProjector" = "True" "RenderType" = "Transparent" }
 		LOD 100
 		ZWrite Off
+		Cull Off
 		Blend SrcAlpha OneMinusSrcAlpha 
 		
 		Pass
@@ -232,13 +228,6 @@
 			float _LevelsOpacityGradient3;
 			float _LevelsOpacityTolerance3;
 
-			sampler2D _CutoffTexture;
-			float _EnableCutoff;
-			float _CutoffFactor;
-			float _EnableCutoffColorization;
-			fixed4 _CutoffColor50;
-			fixed4 _CutoffColor15;
-
 			v2f vert (appdata v)
 			{
 				v2f o;
@@ -314,26 +303,6 @@
 				fixed4 col = tex2D(_MainTex, i.uv) * _Color;
 				col.rgb = !_InvertInput ? col.rgb : 1 - col.rgb;
 
-				_CutoffFactor -= lerp(0.15, -0.15, _CutoffFactor) +0.1;
-
-				if (_EnableCutoffColorization == 1) {
-					_Colorize = fixed4(_CutoffColor50.r, _CutoffColor50.g, _CutoffColor50.b, 0.95-_CutoffFactor/2);
-					_Colorize *= fixed4(_CutoffColor15.r, _CutoffColor15.g, _CutoffColor15.b, 0.95-_CutoffFactor);
-				}
-				
-				// Cutoff
-				if (_EnableCutoff != 0 && col.a > 0.1) {
-					fixed4 cutoff = tex2D(_CutoffTexture, i.uv);
-
-					if (_CutoffFactor >= 1.0001 - cutoff.r) {
-						col.a = 1;
-					}
-					else
-					{
-						col.a = lerp(1.5 - 0.4 * _CutoffFactor, -0.7 * _CutoffFactor, 1 - pow(_CutoffFactor + cutoff.r, 10) + 0.15);
-					}
-				}
-
 				col = shiftHue(col, _Hue);
 				half sat = saturate(Luminance(col.rgb));
 
@@ -373,9 +342,9 @@
 				col.a = replaceOpacity(col, _LevelsOpacitySource2, _LevelsOpacityValue2, _LevelsOpacityGradient2, _LevelsOpacityTolerance2);
 				col.a = replaceOpacity(col, _LevelsOpacitySource3, _LevelsOpacityValue3, _LevelsOpacityGradient3, _LevelsOpacityTolerance3);
 
-				// Invert Output				
+				// Invert Output
 				col.rgb = !_InvertOutput ? col.rgb : 1 - col.rgb;
-				
+
 				// Fade In Effects
 				processFadeInEffects(i);
 
@@ -384,5 +353,24 @@
 
 			ENDCG
 		}
+		
+		Blend DstAlpha Zero
+		BlendOp Max
+
+		CGPROGRAM
+		#pragma surface surf Lambert alpha:fade
+		sampler2D _MainTex;
+		float _LightInfluence;
+		struct Input {
+			float2 uv_MainTex;
+		};
+		void surf(Input IN, inout SurfaceOutput o) {
+			fixed4 col = tex2D(_MainTex, IN.uv_MainTex);
+			if (col.a > 0.1) {
+				o.Albedo = col.rgb* _LightInfluence;
+			}
+			o.Alpha = col.a* _LightInfluence;
+		}
+		ENDCG
 	}
 }

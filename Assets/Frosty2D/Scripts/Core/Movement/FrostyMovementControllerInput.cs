@@ -7,16 +7,19 @@ namespace Assets.Frosty2D.Scripts.Core.Movement
     public class FrostyMovementControllerInput
     {
         [Header("Movement Reference")]
-        public FrostyPatternMovement movement;        
+        public FrostyPatternMovement movement;
+
+        [Header("Conditions")]
+        public FrostyMovementPredicate[] conditions;
 
         [Header("Input")]
         public KeyCode key;
         public FrostyMovementOptions behavior;
         public bool toggle;
-        public bool excludeOtherInputs;
-        public int priority;
-
-        [Header("Direction")]
-        public bool reverse;
+        public bool exclusive;
+        public bool deactivateOnRelease;
+        public bool repeatOnHold;
+        public bool keepSpeed;
+        public int priority;   
     }
 }
